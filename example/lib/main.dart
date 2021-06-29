@@ -4,8 +4,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
-import 'package:flutter_inappwebview_example/chrome_safari_browser_example.screen.dart';
-import 'package:flutter_inappwebview_example/headless_in_app_webview.screen.dart';
 import 'package:flutter_inappwebview_example/in_app_webiew_example.screen.dart';
 import 'package:flutter_inappwebview_example/in_app_browser_example.screen.dart';
 // import 'package:path_provider/path_provider.dart';
@@ -61,21 +59,9 @@ Drawer myDrawer({required BuildContext context}) {
           },
         ),
         ListTile(
-          title: Text('ChromeSafariBrowser'),
-          onTap: () {
-            Navigator.pushReplacementNamed(context, '/ChromeSafariBrowser');
-          },
-        ),
-        ListTile(
           title: Text('InAppWebView'),
           onTap: () {
             Navigator.pushReplacementNamed(context, '/');
-          },
-        ),
-        ListTile(
-          title: Text('HeadlessInAppWebView'),
-          onTap: () {
-            Navigator.pushReplacementNamed(context, '/HeadlessInAppWebView');
           },
         ),
       ],
@@ -104,8 +90,6 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(initialRoute: '/', routes: {
       '/': (context) => InAppWebViewExampleScreen(),
       '/InAppBrowser': (context) => InAppBrowserExampleScreen(),
-      '/ChromeSafariBrowser': (context) => ChromeSafariBrowserExampleScreen(),
-      '/HeadlessInAppWebView': (context) => HeadlessInAppWebViewExampleScreen(),
     });
   }
 }

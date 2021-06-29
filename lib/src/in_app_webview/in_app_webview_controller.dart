@@ -536,7 +536,8 @@ class InAppWebViewController {
               ClientCertChallenge.fromMap(arguments);
 
           if (_webview != null && _webview.onReceivedClientCertRequest != null)
-            return (await _webview.onReceivedClientCertRequest(this, challenge))
+            return (await _webview.onReceivedClientCertRequest(
+                    this, challenge))
                 ?.toMap();
           else
             return (await _inAppBrowser.onReceivedClientCertRequest(challenge))
@@ -567,8 +568,8 @@ class InAppWebViewController {
                     this, origin, resources))
                 ?.toMap();
           else
-            return (await _inAppBrowser.androidOnPermissionRequest(
-                    origin, resources))
+            return (await _inAppBrowser
+                    .androidOnPermissionRequest(origin, resources))
                 ?.toMap();
         }
         break;
@@ -606,9 +607,11 @@ class InAppWebViewController {
         if (_webview != null &&
             _webview.iosOnDidReceiveServerRedirectForProvisionalNavigation !=
                 null)
-          _webview.iosOnDidReceiveServerRedirectForProvisionalNavigation(this);
+          _webview
+              .iosOnDidReceiveServerRedirectForProvisionalNavigation(this);
         else if (_inAppBrowser != null)
-          _inAppBrowser.iosOnDidReceiveServerRedirectForProvisionalNavigation();
+          _inAppBrowser
+              .iosOnDidReceiveServerRedirectForProvisionalNavigation();
         break;
       case "onNavigationResponse":
         if ((_webview != null && _webview.iosOnNavigationResponse != null) ||
@@ -638,7 +641,8 @@ class InAppWebViewController {
               URLAuthenticationChallenge.fromMap(arguments);
 
           if (_webview != null && _webview.iosShouldAllowDeprecatedTLS != null)
-            return (await _webview.iosShouldAllowDeprecatedTLS(this, challenge))
+            return (await _webview.iosShouldAllowDeprecatedTLS(
+                    this, challenge))
                 ?.toMap();
           else
             return (await _inAppBrowser.iosShouldAllowDeprecatedTLS(challenge))
@@ -808,7 +812,8 @@ class InAppWebViewController {
               AjaxRequest request = AjaxRequest.fromMap(arguments);
 
               if (_webview != null && _webview.onAjaxProgress != null)
-                return jsonEncode(await _webview.onAjaxProgress(this, request));
+                return jsonEncode(
+                    await _webview.onAjaxProgress(this, request));
               else
                 return jsonEncode(await _inAppBrowser.onAjaxProgress(request));
             }

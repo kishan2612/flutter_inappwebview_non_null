@@ -84,7 +84,7 @@ class ChromeSafariBrowser {
   ///[url]: The [url] to load.
   ///
   ///[options]: Options for the [ChromeSafariBrowser].
-  Future<void> open({Uri url, ChromeSafariBrowserClassOptions? options}) async {
+  Future<void> open({Uri url, ChromeSafariBrowserClassOptions options}) async {
     assert(url.toString().isNotEmpty);
     this.throwIsAlreadyOpened(message: 'Cannot open $url!');
 
